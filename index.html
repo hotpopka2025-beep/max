@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Глубокая вода — интерактивная симуляция</title>
+  <link rel="stylesheet" href="./style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <div id="app">
+    <div id="overlay">
+      <div class="brand">Глубокая вода</div>
+      <div class="description">Реалистичная вода, динамическая погода и корабль в движении.</div>
+
+      <div class="controls">
+        <div class="control-group">
+          <label for="weather">Режим погоды</label>
+          <select id="weather">
+            <option value="calm">Штиль</option>
+            <option value="breeze">Лёгкий бриз</option>
+            <option value="storm">Шторм</option>
+            <option value="dusk">Закат и туман</option>
+          </select>
+        </div>
+
+        <div class="control-row">
+          <div class="control-group">
+            <label for="waveHeight">Высота волны</label>
+            <input type="range" id="waveHeight" min="0.05" max="8" step="0.05" value="3.5" />
+            <span class="value" id="waveHeightValue">3.5</span>
+          </div>
+          <div class="control-group">
+            <label for="waveLength">Длина волны</label>
+            <input type="range" id="waveLength" min="0.1" max="8" step="0.1" value="4.0" />
+            <span class="value" id="waveLengthValue">4.0</span>
+          </div>
+        </div>
+
+        <div class="control-row">
+          <div class="control-group">
+            <label for="speed">Скорость</label>
+            <input type="range" id="speed" min="0.1" max="4" step="0.1" value="1.4" />
+            <span class="value" id="speedValue">1.4</span>
+          </div>
+          <div class="control-group">
+            <label for="foam">Пена</label>
+            <input type="range" id="foam" min="0.05" max="0.6" step="0.01" value="0.22" />
+            <span class="value" id="foamValue">0.22</span>
+          </div>
+        </div>
+
+        <div class="control-row">
+          <div class="control-group">
+            <label for="shipToggle">Корабль</label>
+            <button id="shipToggle" class="pill">Добавить</button>
+          </div>
+          <div class="control-group">
+            <label for="shipScale">Размер корабля</label>
+            <input type="range" id="shipScale" min="0.6" max="1.8" step="0.05" value="1" />
+            <span class="value" id="shipScaleValue">1.0</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <canvas id="scene"></canvas>
+  </div>
+  <script type="module" src="./main.js"></script>
+</body>
+</html>
