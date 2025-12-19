@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MaxStream — ваш локальный гид по фильмам и сериалам</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="app-header">
+      <div>
+        <p class="eyebrow">Netflix-style</p>
+        <h1>MaxStream</h1>
+        <p class="lede">
+          Выбирайте фильмы и сериалы, выставляйте оценки и оставляйте отзывы — все
+          хранится локально на вашем устройстве.
+        </p>
+        <div class="controls">
+          <label class="field">
+            <span>Поиск</span>
+            <input id="search" type="search" placeholder="Найти по названию или жанру" />
+          </label>
+          <label class="field">
+            <span>Тип</span>
+            <select id="type-filter">
+              <option value="all">Все</option>
+              <option value="movie">Фильмы</option>
+              <option value="series">Сериалы</option>
+            </select>
+          </label>
+          <label class="field">
+            <span>Сортировать</span>
+            <select id="sort">
+              <option value="rating">По рейтингу</option>
+              <option value="newest">По году (новинки)</option>
+              <option value="alpha">По алфавиту</option>
+            </select>
+          </label>
+        </div>
+      </div>
+      <div class="chip" id="saved-stats">0 сохраненных отзывов</div>
+    </header>
+
+    <main>
+      <section id="catalog" class="catalog" aria-live="polite"></section>
+    </main>
+
+    <template id="card-template">
+      <article class="card">
+        <div class="media">
+          <div class="poster"></div>
+          <div class="badge" data-type></div>
+          <div class="pill" data-duration></div>
+        </div>
+        <div class="card-body">
+          <header>
+            <div>
+              <p class="overline" data-genre></p>
+              <h2 data-title></h2>
+              <p class="meta" data-meta></p>
+            </div>
+            <div class="score">
+              <span class="score-value" data-score></span>
+              <span class="score-label">IMDb</span>
+            </div>
+          </header>
+          <p class="summary" data-summary></p>
+          <div class="user-panel">
+            <div class="user-rating">
+              <label>
+                <span>Ваша оценка</span>
+                <div class="stars" data-stars></div>
+                <input type="range" min="1" max="10" value="7" step="1" data-rating-input />
+              </label>
+            </div>
+            <div class="review">
+              <label>
+                <span>Короткий отзыв</span>
+                <textarea rows="3" placeholder="Что понравилось?" data-review></textarea>
+              </label>
+            </div>
+            <div class="actions">
+              <button class="primary" data-save>Сохранить</button>
+              <button class="ghost" data-clear>Очистить</button>
+            </div>
+            <p class="hint" data-hint>Не сохранено</p>
+          </div>
+        </div>
+      </article>
+    </template>
+
+    <script src="script.js"></script>
+  </body>
+</html>
